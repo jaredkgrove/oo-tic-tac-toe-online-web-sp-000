@@ -74,7 +74,7 @@ class TicTacToe
     end
   end
 
-  def plays
+  def play
     until over? do
       turn
     end
