@@ -63,22 +63,22 @@ def draw?
   full? && !won? 
 end
   
-def over?(board)
-  won?(board) || draw?(board)
+def over?
+  won? || draw?
 end
 
-def winner(board)
-  if won?(board).class == Array
-    board[won?(board)[0]]
+def winner
+  if won?.class == Array
+    @board[won?[0]]
   end
 end
 
-def play(board)
-  until over?(board) do
-    turn(board)
+def plays
+  until over? do
+    turn
   end
-  if won?(board)
-    puts  "Congratulations #{winner(board)}!"
+  if won?
+    puts  "Congratulations #{winner}!"
   else
     puts "Cat's Game!"
   end
