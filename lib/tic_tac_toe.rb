@@ -33,56 +33,56 @@ def turn
   puts "Please enter 1-9:"
   @input = gets.chomp
   @index = input_to_index
-  if valid_move?
-    move
-    display_board
-  else
-    turn
+    if valid_move?
+      move
+      display_board
+    else
+      turn
+    end
   end
-end
 
-def turn_count
-  @board.count {|mark| mark == "X" || @mark == "O"}
-end
-
-def current_player
-  turn_count.even? ? "X" : "O"
-end
-
-def won?
-  WIN_COMBINATIONS.detect do |combination|
-  combination.all? {|win_index| @board[win_index] == "X"} || combination.all? {|win_index| @board[win_index] == "O"}
+  def turn_count
+    @board.count {|mark| mark == "X" || @mark == "O"}
   end
-end
 
-def full?
-  @board.all? {|space| space == "X" || space == "O"}
-end
+  def current_player
+    turn_count.even? ? "X" : "O"
+  end
+
+  def won?
+    WIN_COMBINATIONS.detect do |combination|
+    combination.all? {|win_index| @board[win_index] == "X"} ||   combination.all? {|win_index| @board[win_index] == "O"}
+    end
+  end
+
+  def full?
+    @board.all? {|space| space == "X" || space == "O"}
+  end
   
-def draw?
-  full? && !won? 
-end
+  def draw?
+    full? && !won? 
+  end
   
-def over?
-  won? || draw?
-end
+  def over?
+    won? || draw?
+  end
 
-def winner
-  if won?.class == Array
-    @board[won?[0]]
+  def winner
+    if won?.class == Array
+      @board[won?[0]]
+    end
   end
-end
 
-def plays
-  until over? do
-    turn
+  def plays
+    until over? do
+      turn
+    end
+    if won?
+      puts  "Congratulations #{winner}!"
+    else
+      puts "Cat's Game!"
+    end
   end
-  if won?
-    puts  "Congratulations #{winner}!"
-  else
-    puts "Cat's Game!"
-  end
-end
 end
 
 
