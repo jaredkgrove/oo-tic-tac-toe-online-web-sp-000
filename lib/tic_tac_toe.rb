@@ -35,7 +35,7 @@ def turn
   @index = input_to_index
   if valid_move?
     move
-    display_board(board)
+    display_board
   else
     turn(board)
   end
