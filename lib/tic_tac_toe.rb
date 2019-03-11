@@ -41,26 +41,26 @@ def turn
   end
 end
 
-def turn_count(board)
-  board.count {|mark| mark == "X" || mark == "O"}
+def turn_count
+  @board.count {|@mark| @mark == "X" || @mark == "O"}
 end
 
-def current_player(board)
-  turn_count(board).even? ? "X" : "O"
+def current_player
+  turn_count.even? ? "X" : "O"
 end
 
-def won?(board)
+def won?
   WIN_COMBINATIONS.detect do |combination|
-  combination.all? {|win_index| board[win_index] == "X"} || combination.all? {|win_index| board[win_index] == "O"}
+  combination.all? {|win_index| @board[win_index] == "X"} || combination.all? {|win_index| @board[win_index] == "O"}
   end
 end
 
-def full?(board)
-  board.all? {|space| space == "X" || space == "O"}
+def full?
+  @board.all? {|space| space == "X" || space == "O"}
 end
   
-def draw?(board)
-  full?(board) && !won?(board) 
+def draw?
+  full? && !won? 
 end
   
 def over?(board)
