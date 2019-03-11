@@ -29,12 +29,12 @@ def valid_move?
   @index.between?(0,8) && !position_taken?
 end
 
-def turn(board)
+def turn
   puts "Please enter 1-9:"
-  input = gets.chomp
-  index = input_to_index(input)
-  if valid_move?(board, index)
-    move(board, index, current_player(board))
+  @input = gets.chomp
+  @index = input_to_index
+  if valid_move?
+    move(b
     display_board(board)
   else
     turn(board)
