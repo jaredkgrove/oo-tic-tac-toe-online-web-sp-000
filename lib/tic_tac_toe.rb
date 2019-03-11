@@ -34,7 +34,7 @@ def turn
   @input = gets.chomp
   @index = input_to_index
   if valid_move?
-    move(b
+    move
     display_board(board)
   else
     turn(board)
