@@ -37,7 +37,7 @@ def turn
     move
     display_board
   else
-    turn(board)
+    turn
   end
 end
 
