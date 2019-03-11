@@ -18,12 +18,12 @@ class TicTacToe
     input.to_i - 1
   end
   
-  def move
-    @board[@index] = @mark
+  def move(index, mark)
+    @board[index] = mark
   end
   
-  def position_taken?
-    !(@board[@index].nil? || @board[@index] == " ")
+  def position_taken?(index)
+    !(@board[index].nil? || @board[index] == " ")
   end
 
   def valid_move?
